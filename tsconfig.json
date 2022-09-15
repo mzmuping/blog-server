@@ -15,7 +15,8 @@
       "@/*": ["src/*"]
     }
   },
-
+  "include": ["./src/**/*", "./utils/**/*", "./config/**/*"],
+  "exclude": ["node_modules"],
   // ts-node的时候会读取这里的配置
   "ts-node": {
     "compilerOptions": {
