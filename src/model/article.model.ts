@@ -6,11 +6,11 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from 'sequelize';
+} from "sequelize";
 
-import sequelize from '@/config/db';
-import { IArticle } from '@/interface';
-import { initTable } from '@/utils';
+import sequelize from "../../config/db";
+import { IArticle } from "@/interface";
+import { initTable } from "utils";
 
 // const Sequelize = require('sequelize');
 
@@ -24,7 +24,7 @@ interface ArticleModel
 // https://sequelize.org/docs/v6/other-topics/typescript/#usage-of-sequelizedefine
 const model = sequelize.define<ArticleModel>(
   // 这将控制自动生成的foreignKey和关联命名的名称
-  'article', // 模型名称
+  "article", // 模型名称
   {
     id: {
       type: DataTypes.INTEGER,
@@ -57,7 +57,7 @@ const model = sequelize.define<ArticleModel>(
       allowNull: true,
     },
     content: {
-      type: DataTypes.TEXT('long'),
+      type: DataTypes.TEXT("long"),
       allowNull: false,
     },
     click: {
@@ -68,11 +68,11 @@ const model = sequelize.define<ArticleModel>(
   {
     paranoid: true,
     freezeTableName: true, // 你可以使用 freezeTableName: true 参数停止 Sequelize 执行自动复数化. 这样,Sequelize 将推断表名称等于模型名称,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-    deletedAt: 'deleted_at',
+    createdAt: "created_at",
+    updatedAt: "updated_at",
+    deletedAt: "deleted_at",
   }
 );
 
-initTable(model);
+// initTable(model);
 export default model;
